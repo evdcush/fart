@@ -64,7 +64,34 @@
     :target: https://pypi.python.org/pypi/fart
     :alt: Latest PyPI version
 
-Figlet ART for documentation. Make text banners to visually divide segments in your code.
+Make text banners to visually divide segments in your code with fart.
+
+What's a fart?
+
+.. code-block::
+
+    //-----------------------------------------------------------------------------//
+    //                               This is a fart.                               //
+    //-----------------------------------------------------------------------------//
+
+
+    #=============================================================================#
+    #              ____              _           _     _       _                  #
+    #             / ___|    ___     (_)  ___    | |_  | |__   (_)  ___            #
+    #             \___ \   / _ \    | | / __|   | __| | '_ \  | | / __|           #
+    #              ___) | | (_) |   | | \__ \   | |_  | | | | | | \__ \           #
+    #             |____/   \___/    |_| |___/    \__| |_| |_| |_| |___/           #
+    #                                                                             #
+    #=============================================================================#
+
+
+
+
+Fart is short for Figlet ART. This program is very similar to Figlet, and most fonts are borrowed from from it. Fart is focused on making text banners for use in code documentation.
+
+As such, all generated text is encapsulated by commenting characters and copied to clipboard, so you can easily paste your fart into your code.
+
+
 
 
 Usage
@@ -126,9 +153,6 @@ Farts are automatically copied to your clipboard for convenience. To disable thi
 To see all available fonts and their supported character-sets, enter ``fart -s`` or ``fart --sample``.
 
 There are many, *many* FIGlet and ascii-art fonts out there. I simply chose the ones I felt were most legible, so that you could ideally parse through a script simply through the mini code viewport available in most IDEs. There are also quite a few fonts in there that are mostly for fun :]. I may add more fonts later, or possibly other types of non-text banners, but for now, only single-row banners are supported.
-
-
-
 
 
 

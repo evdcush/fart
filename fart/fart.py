@@ -215,8 +215,8 @@ def fart(text, font_name=None, cap=CAP, line=LINE, copy=True):
     #=== Print 'n copy
     print('\n' + fart + '\n')
     if copy:
-        #pyperclip.copy(fart)
-        pass
+        pyperclip.copy(fart)
+        #pass
 
 
 def sample_farts(sample='Sample'):
