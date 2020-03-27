@@ -89,8 +89,7 @@ What's a fart?
 
 Fart is short for Figlet ART. This program is very similar to Figlet, and most fonts are borrowed from from it. Fart is focused on making text banners for use in code documentation.
 
-As such, all generated text is encapsulated by commenting characters and copied to clipboard, so you can easily paste your fart into your code.
-
+As such, all generated text is **encapsulated by commenting characters** and copied to clipboard, so you can easily paste your fart into your code.
 
 
 
@@ -151,12 +150,6 @@ Farts are automatically copied to your clipboard for convenience. To disable thi
 
 
 To see all available fonts and their supported character-sets, enter ``fart -s`` or ``fart --sample``.
-
-There are many, *many* FIGlet and ascii-art fonts out there. I simply chose the ones I felt were most legible, so that you could ideally parse through a script simply through the mini code viewport available in most IDEs. There are also quite a few fonts in there that are mostly for fun :]. I may add more fonts later, or possibly other types of non-text banners, but for now, only single-row banners are supported.
-
-
-
-
 
 
 Installation

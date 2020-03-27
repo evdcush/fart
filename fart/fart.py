@@ -1,10 +1,33 @@
 #!/usr/bin/env python
 """
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 Fart
+====
+Make text banners to visually divide segments in your code.
+
+How can you fart on your code? Say you have two main parts in
+your script: preprocess and train. You can make two farts to divide the
+sections via:
+
+$ fart PRE-PROCESS
+
+#=============================================================================#
+#                                 PRE-PROCESS                                 #
+#=============================================================================#
+
+$ fart TRAINING
+
+#=============================================================================#
+#                                   TRAINING                                  #
+#=============================================================================#
+
+
+Fart now and see the difference!
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 """
-# @TODO:
-#     write a proper __doc__, and figure out that dang ArgumentParser
-#     printing func (it doesn't print newlines)
 
 import os
 import sys
@@ -241,7 +264,9 @@ def sample_farts(sample='Sample'):
 
 def main():
     #=== Make CLI
-    parser = argparse.ArgumentParser(description='Fart on your docs')
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
     arg = parser.add_argument
     arg('text', nargs='*', type=str, help='text to fart')
     arg('-f', '--font', default=None, type=str, choices=FONT_NAMES,
@@ -274,6 +299,12 @@ def main():
     cap  = args.cap
     line = args.line
     copy = not args.no_copy
+
+    if text.strip() == '': # text was not given
+        #raise Exception('Must provide fart text!')
+        print('Must provide fart text!')
+        parser.print_help()
+        sys.exit(1)
 
     #=== Fart
     fart(text, font_name, cap, line, copy)
