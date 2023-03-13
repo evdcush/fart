@@ -87,9 +87,12 @@ What's a fart?
 
 
 
-Fart is short for Figlet ART. This program is very similar to Figlet, and most fonts are borrowed from from it. Fart is focused on making text banners for use in code documentation.
+Fart is short for Figlet ART. This program is very similar to Figlet, and most
+fonts are borrowed from from it. Fart is focused on making text banners for
+use in code documentation.
 
-As such, all generated text is **encapsulated by commenting characters** and copied to clipboard, so you can easily paste your fart into your code.
+As such, all generated text is **encapsulated by commenting characters** and
+copied to clipboard, so you can easily paste your fart into your code.
 
 
 
@@ -105,13 +108,18 @@ There are two types of farts currently supported:
     #                                text-box style                               #
     #=============================================================================#
 
+    $ fart -o one-line text-box style
+
+    #=========================  one-line text-box style  =========================#
+
+
 
 
 and...
 
 .. code-block::
 
-    $ fart figlet style --font big
+    $ fart --font big figlet style
 
     #=============================================================================#
     #        __   _           _          _             _             _            #
@@ -145,11 +153,34 @@ For example::
     //#############################################################################//
 
 
+You can also optionally pad the inside of "cap" char with a space, as it
+'space following a comment char' is a common linting rule and will ruin your
+farts.
 
-Farts are automatically copied to your clipboard for convenience. To disable this functionality, make sure to flag your farts with ``-n``.
+If you can't fart around your linter due to this rule, this is the
+option for you!
+
+Specify the ``-p`` ``--pad-caps`` option::
+
+    $ fart -p -f small Nice try Black!
+
+    # =============================================================================== #
+    #    _  _   _                _                    ___   _               _     _   #
+    #   | \| | (_)  __   ___    | |_   _ _   _  _    | _ ) | |  __ _   __  | |__ | |  #
+    #   | .` | | | / _| / -_)   |  _| | '_| | || |   | _ \ | | / _` | / _| | / / |_|  #
+    #   |_|\_| |_| \__| \___|    \__| |_|    \_, |   |___/ |_| \__,_| \__| |_\_\ (_)  #
+    #                                        |__/                                     #
+    #                                                                                 #
+    # =============================================================================== #
 
 
-To see all available fonts and their supported character-sets, enter ``fart -s`` or ``fart --sample``.
+
+Farts are automatically copied to your clipboard for convenience.
+To disable this functionality, make sure to flag your farts with ``-n``.
+
+
+To see all available fonts and their supported character-sets,
+enter ``fart -s`` or ``fart --sample``.
 
 
 Installation
@@ -161,11 +192,9 @@ Install through pip::
 
 Requirements
 ------------
-Package was built for use in python 3. Probably works in python 2.
-
-Additional required packages:
-
-- pyperclip
+This package was built for use in Python 3 in Linux.
+I expect this package should work for other environments, but no support for
+other OS is planned.
 
 
 
@@ -173,7 +202,16 @@ Acknowledgements
 ================
 FIGlet fonts are licensed under the BSD-3 by the original authors at http://www.figlet.org.
 
-Big thanks to the members of the `Laboratory of Plasma Physics (LPP) <https://github.com/LaboratoryOfPlasmaPhysics>`_ who were the original farters on PyPi with `Find All Roots with a Tree <https://github.com/LaboratoryOfPlasmaPhysics/fart>`_, but graciously allowed me fart on PyPi.
+This package uses `pyperclip <https://github.com/asweigart/pyperclip>`_ code
+to copy farts to the clipboard, so a huge thanks to Al Sweigart and other
+contributors to that wonderful software.
+
+
+Big thanks to the members of the
+`Laboratory of Plasma Physics (LPP) <https://github.com/LaboratoryOfPlasmaPhysics>`_
+who were the original farters on PyPi
+with `Find All Roots with a Tree <https://github.com/LaboratoryOfPlasmaPhysics/fart>`_,
+but graciously allowed me fart on PyPi.
 
 
 License
