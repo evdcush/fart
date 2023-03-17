@@ -27,8 +27,6 @@ setup(
 
     packages=find_packages(exclude=('tests',)),
 
-    install_requires=['pyperclip'],
-
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: BSD License',

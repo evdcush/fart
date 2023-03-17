@@ -202,9 +202,8 @@ Acknowledgements
 ================
 FIGlet fonts are licensed under the BSD-3 by the original authors at http://www.figlet.org.
 
-This package uses `pyperclip <https://github.com/asweigart/pyperclip>`_ code
-to copy farts to the clipboard, so a huge thanks to Al Sweigart and other
-contributors to that wonderful software.
+This package also uses `pyperclip <https://github.com/asweigart/pyperclip>`_ code
+to copy farts to the clipboard.
 
 
 Big thanks to the members of the
