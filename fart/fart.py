@@ -105,6 +105,7 @@ import argparse
 import glob
 import importlib
 import os
+from pathlib import Path
 import sys
 
 import clipper
@@ -118,8 +119,7 @@ FONTS_DIR = SRC_DIR + '/fonts'
 
 # Fonts.
 font_fnames = glob.glob(FONTS_DIR + '/[!_]*.py')  # exclude dunders (__init__)
-get_font_name = lambda fname: os.path.splitext(os.path.basename(fname))[0]
-FONT_NAMES = [get_font_name(font_fname) for font_fname in font_fnames]
+FONT_NAMES = [Path(font_fname).stem for font_fname in font_fnames]
 
 
 # Default vars
@@ -283,8 +283,8 @@ def build_fart_from_font(text_to_fart: str, font: dict[str, list[str]]) -> str:
     #       function.
     spliced = ''
 
-    # Join chars row-wise
-    joined = zip(*[font[c] for c in text])
+    # Join chars row-wise.
+    joined = zip(*[font[c] for c in text_to_fart])
     for c in joined:
         txt = ''.join(c)
         if txt.replace(' ', '') == '': continue  # don't add blank lines
@@ -292,8 +292,9 @@ def build_fart_from_font(text_to_fart: str, font: dict[str, list[str]]) -> str:
     return spliced
 
 
-def render_fart(text: str, font: dict[str, list[str]], cap=CAP, line=LINE, width=WIDTH, pad=False):
-    """ Render the fart text with the given font
+def render_fart(text: str, font: dict[str, list[str]], cap=CAP, line=LINE,
+    width=WIDTH, pad=False):
+    """Render the fart text with the given font
 
     Primary farting function. This func requires the name of the
     figlet font (as the font arg).
@@ -301,22 +302,22 @@ def render_fart(text: str, font: dict[str, list[str]], cap=CAP, line=LINE, width
     Parameters
     ==========
     text : str
-        text to be farted
-    font : dict<list<str>>
-        figlet font dict, mapping str chars, eg 'A', '3', to ascii art strings
+        Text to be farted.
+    font : dict[str, list[str]]
+        Figlet font dict, mapping str chars, eg 'A', '3', to ascii art strings.
     cap : str
-        # characters at the ends of a line of text #
+        `#` characters at the ends of a line of text `#`
     line : str
-        line char, eg '=' : #=====================#
+        Line char, eg '=' : #=====================#
     width : int
-        maximum text line width
+        Maximum text line width.
     pad : bool
-        whether to pad inside of caps
+        Whether to pad inside of caps.
 
     Returns
     =======
     fart : str
-        rendered fart
+        Rendered fart.
     """
     mostly_space = False  # whether topmost line contains mostly space
     fart = ''
@@ -419,10 +420,7 @@ def sample_farts(sample='Sample'):
 #=============================================================================#
 
 def main():
-    cd1 = '/'.join(os.path.realpath(__file__).split('/')[:-1])
-    curdir = os.path.realpath(__file__)
-
-    #=== Make CLI
+    # Define the interface.
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -453,7 +451,6 @@ def main():
 
     arg('-p', '--pad-caps', action='store_true',
         help="Optionally pad inner side of caps with a space, eg: `# ==== #`")
-
 
     # Parse args.
     args = parser.parse_args()

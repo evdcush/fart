@@ -22,7 +22,7 @@ setup(
     author="Evan Cushing",
     author_email="evdcush@protonmail.com",
 
-    description="FARt all over your documentation",
+    description="Fart all over your documentation",
     long_description=read("README.rst"),
 
     packages=find_packages(exclude=('tests',)),
